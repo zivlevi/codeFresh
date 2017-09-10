@@ -14,8 +14,8 @@ open new terminal for mysql:
 - mysql -u root -p (or another user) and get into mySQL shell
 
 open new terminal:
--cd (location of the directory) 
--mongoimport --db users --collection contacts --file accounts.json --batchSize 100
+- cd (location of the directory) 
+- mongoimport --db users --collection contacts --file accounts.json --batchSize 100
 - node main.js
 - enter your host, user, passowrd for connecting to mySQL server.
 
