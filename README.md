@@ -2,27 +2,25 @@
 download the project and unzip the account.zip and node_modules.zip
 
 
-open local host of mogodb:
+open terminal for mongodDB:
 
-- enter the location of the file.
-- mongod - to open the server
-- (location of the directory)/node_modules/mongodb and enter mongo- to open the shell of mongo
+- enter the location of the directory.
+- enter mongod - opens the server.
+- cd (location of the directory)/node_modules/mongodb and enter mongo - opens the mongo shell.
 
-open terminal for running mysql:
+open new terminal for mysql:
 
 - PATH=$PATH:/usr/local/mysql/bin
 - mysql -u root -p (or another user) and get into mySQL shell
 
-open new terminal enter the directory of the project and enter:
-
+open new terminal:
+-cd (location of the directory) 
 -mongoimport --db users --collection contacts --file accounts.json --batchSize 100
-
-and then enter:
 - node main.js
-- enter your host , user , passowrd for connecting to the mySQL server.
+- enter your host, user, passowrd for connecting to mySQL server.
 
 
-after that the program finish you can use this commands from viewing the mySQL data base
+when the program finish you can use this commands to viewing the mySQL database
 - use Accounts
 - SELECT * FROM accounts
 
