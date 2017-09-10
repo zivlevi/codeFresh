@@ -1,6 +1,4 @@
 var fs = require('fs');
-var MongoClient = require('mongodb').MongoClient;
-var url = "mongodb://localhost:27017/users";
 var col = [];
 var types = [];
 var vals = [];
@@ -17,10 +15,9 @@ var addFields = function (res) {
             addFields(res[key])
             }
         else {
-         console.log("mySQL"+key)   ;
          types.push(typeof res[key]);
          vals.push(res[key]);
-         col.push("mySQL"+key);//fix
+         col.push("mySQL"+key);
         }
     }
 }
