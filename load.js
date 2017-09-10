@@ -1,3 +1,6 @@
+/**
+ * Created by zivlevi1 on 10.9.2017.
+ */
 var mysql = require('mysql');
 const Transform = require('./transform');
 var fs = require('fs');
