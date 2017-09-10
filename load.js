@@ -2,45 +2,50 @@ var mysql = require('mysql');
 const Transform = require('./transform');
 var fs = require('fs');
 var MongoClient = require('mongodb').MongoClient;
-var url = "mongodb://localhost:27017/users";
+var url = "mongodb://localhost:27017/Accounts";
 var vals = [];
+var con;
 
-var con = mysql.createConnection({
-    host:'localhost',
-    user:'root',
-    password:'password',
-});
-
-
-
-
-
-con.connect(function(err) {
-    if (err) throw err;
-    MongoClient.connect(url, function(err, db) {
+exports.createConnection = function (host,user,pass) {
+    con = mysql.createConnection({
+        host:host,
+        user:user,
+        password:pass,
+    });
+    con.connect(function(err) {
         if (err) throw err;
-        db.collection("contacts").findOne(function(err, res) {
+        MongoClient.connect(url, function(err, db) {
             if (err) throw err;
-            Transform.TempaddFields(res);
-            con.query("CREATE DATABASE Accounts", function (err, result) {
+            db.collection("contacts").findOne(function(err, res) {
                 if (err) throw err;
-                con.query("use Accounts", function (err, result) {
+                console.log("Connected!");
+                Transform.TempaddFields(res);
+                con.query("CREATE DATABASE Accounts", function (err, result) {
                     if (err) throw err;
-                    var sql = "CREATE TABLE accounts ("+Transform.createTable().substring(0,Transform.createTable().length-2)+")";
-                    con.query(sql, function (err, result) {
+                    console.log("Create database Accounts");
+                    con.query("use Accounts", function (err, result) {
                         if (err) throw err;
-                        console.log("Table created");
-                        console.log("Connected!");
-                        db.collection("contacts").count(function (err, maxDoc) {
-                            addData(db,0,maxDoc);
+                        console.log("Switch to Account");
+                        var sql = "CREATE TABLE accounts ("+Transform.createTable().substring(0,Transform.createTable().length-2)+")";
+                        con.query(sql, function (err, result) {
+                            if (err) throw err;
+                            console.log("Table created");
+                            db.collection("contacts").count(function (err, maxDoc) {
+                                addData(db,0,maxDoc);
+                            });
                         });
-                    });
 
+                    });
                 });
             });
         });
     });
-});
+
+}
+
+
+
+
 
 
 var createValue = function (res,qur) {
@@ -58,8 +63,7 @@ var createValue = function (res,qur) {
 
 function addData(db,docNum,maxDoc) {
     console.log(docNum);
-    db.collection("contacts").find({},{},{}, function (err, lst) {
-        console.log(lst.length);
+    db.collection("contacts").find({},{},{skip:docNum,limit:10000}, function (err, lst) {
         lst.forEach(function (items) {
             var qur = "";
             createValue(items, qur);
@@ -74,19 +78,16 @@ function addData(db,docNum,maxDoc) {
             }
             vals = [];
             var sql = "INSERT INTO accounts VALUES (" + qur.substring(0, qur.length - 2) + ")";
-            console.log(sql + "\n");
             con.query(sql, function (err, result) {
                 if (err) throw err;
-                console.log("1 record inserted");
-                //db.close();
+                console.log("one record inserted");
                 docNum = docNum + 1;
                 console.log("docNum:"+docNum);
-            });
-        },function () {
-            if (docNum < maxDoc && docNum % 1000 == 0) {
+                if (docNum < maxDoc && docNum % 10000 === 0) {
 
-                addData(db, docNum, maxDoc)
-            }
+                    addData(db, docNum, maxDoc)
+                }
+            });
         })
 
     });
