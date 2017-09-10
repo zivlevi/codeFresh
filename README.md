@@ -23,7 +23,7 @@ and then enter:
 
 
 after that the program finish you can use this commands from viewing the mySQL data base
-- use <Accounts>
+- use Accounts
 - SELECT * FROM accounts
 
 
