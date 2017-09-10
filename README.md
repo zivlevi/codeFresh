@@ -24,6 +24,9 @@ when the program finish you can use this commands to viewing the mySQL database
 - use Accounts
 - SELECT * FROM accounts
 
+Testing:
+- ./node_modules/mocha/bin/mocha
+
 
 
 
