@@ -15,7 +15,7 @@ open new terminal for mysql:
 
 open new terminal:
 - cd (location of the directory) 
-- mongoimport --db users --collection contacts --file accounts.json --batchSize 100
+- mongoimport --db Accounts --collection contacts --file accounts.json --batchSize 10000
 - node main.js
 - enter your host, user, passowrd for connecting to mySQL server.
 
