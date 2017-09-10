@@ -1,4 +1,6 @@
 # instructions:
+download the project and unzip the account.zip and node_modules.zip
+
 
 open local host of mogodb
 enter the location of the file.
