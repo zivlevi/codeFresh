@@ -6,6 +6,7 @@ mongoDB:
  open terminal for mongod:
 - cd (location of the directory).
 - enter mongod - opens the server.
+ 
  open terminal for mongo:
 - cd (location of the directory)/node_modules/mongodb. 
 - enter mongo - opens the mongo shell.
