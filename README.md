@@ -4,7 +4,7 @@ download the project and unzip the account.zip and node_modules.zip
 
 open terminal for mongodDB:
 
-- enter the location of the directory.
+- cd (location of the directory).
 - enter mongod - opens the server.
 - cd (location of the directory)/node_modules/mongodb and enter mongo - opens the mongo shell.
 
