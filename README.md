@@ -3,10 +3,12 @@ download the project and unzip the account.zip and node_modules.zip
 
 mongoDB:
 
-- open terminal for mongodDB
+ open terminal for mongod:
 - cd (location of the directory).
 - enter mongod - opens the server.
-- cd (location of the directory)/node_modules/mongodb and enter mongo - opens the mongo shell.
+ open terminal for mongo:
+- cd (location of the directory)/node_modules/mongodb. 
+- enter mongo - opens the mongo shell.
 
 mySQL:
 
