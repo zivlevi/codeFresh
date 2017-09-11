@@ -25,7 +25,15 @@ when the program finish you can use this commands to viewing the mySQL database
 - SELECT * FROM accounts
 
 Testing:
+I having a trouble to upload a folder to github, so the steps for runing the test are:
+- mkdir test (from the directory location)
+- drag the "test.js" file to the new test directory
 - ./node_modules/mocha/bin/mocha
+
+
+Thank you itai,
+
+Ziv.
 
 
 
