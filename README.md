@@ -41,7 +41,7 @@ I having a trouble to upload a folder to github, so the steps for running the te
 - drag the "test.js" file to the new test directory
 - ./node_modules/mocha/bin/mocha
 
-
+******************
 * In addition i attached a small json file with couple of document with the same name of field and a different value type to test this   case (account2.json). and one json file for a case of some documents have a different fields (account3.json).  
 
 for running this json enter: (after remove the databases in mySQL and mongoDB)
