@@ -42,12 +42,12 @@ I having a trouble to upload a folder to github, so the steps for running the te
 - ./node_modules/mocha/bin/mocha
 
 
-* In addition i attached a small json file with couple of document with the same name of field and a different value type to test this   case (account2.json). and one json file for the case with some of documents have a different fields (account3.json).  
+* In addition i attached a small json file with couple of document with the same name of field and a different value type to test this   case (account2.json). and one json file for a case of some documents have a different fields (account3.json).  
 
 for running this json enter: (after remove the databases in mySQL and mongoDB)
 - mongoimport --db Accounts --collection contacts --file accounts2.json --batchSize 10000
 
-or 
+ or 
 
 - mongoimport --db Accounts --collection contacts --file accounts3.json --batchSize 10000
 
