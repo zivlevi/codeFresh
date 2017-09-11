@@ -8,8 +8,7 @@ open terminal for mongodDB:
 - enter mongod - opens the server.
 - cd (location of the directory)/node_modules/mongodb and enter mongo - opens the mongo shell.
 
-open new terminal for mysql:
-
+open new terminal for mysql (make sure that the mySQL database server is started and ready for client connection):
 - PATH=$PATH:/usr/local/mysql/bin
 - mysql -u root -p (or another user) and get into mySQL shell
 
